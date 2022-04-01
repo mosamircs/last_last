@@ -38,10 +38,12 @@ function showLayer(curr){
 }
 //////// change layers
 function changeLayer(curr){
+    console.log(layer);
     //hold for validation
-    if (curr == 1 && !validateForm()) return false;
+    // if (curr == 1 && !validateForm()) return false;
     layer[currLayer].style.display = "none";
     currLayer = currLayer + curr;
+    console.log(currLayer);
         if (currLayer >= layer.length) {
             form.submit();
             return false;
@@ -185,6 +187,7 @@ if(currLayer == 2){
 }
 if(currLayer == 4){
     const inputAdd = document.getElementById('inputtextAdd');
+    console.log(inputAdd);
     if(inputAdd.value == ''){
     //    console.log($('#inputtextAdd'))
     inputAdd.style.border = '1px solid red';
@@ -422,11 +425,11 @@ const btnAdd = document.querySelector('#btn-add-sug');
                     newform.classList.add('row', 'g-3', 'justify-content-evenly' ,'pt-3','sug1');
                         newform.innerHTML = `<div class="col-md-4">
                                   <label for="inputtext1" class="form-label">الاقتراح ${numArray[0]}</label>
-                                  <input type="text" class="form-control" id="inputtext1" required>
+                                  <input type="text" class="form-control" id="inputtext1" name="company_name[]"  required>
                                 </div>
                                 <div class="col-md-4">
                                     <label for="inputtext2" class="form-label">الاقتراح ${numArray[1]}</label>
-                                    <input type="text" class="form-control" id="inputtext2" required>
+                                    <input type="text" class="form-control" id="inputtext2" name="company_name[]"  required>
                                   </div>
                                 <div class="col-md-4 align-self-end text-center" >
                                     <button class="btn btn-outline-danger" id="btn-delete-sug" type="button" onclick="deleted1()">حذف اقتراحات</button>
@@ -441,14 +444,14 @@ const btnAdd = document.querySelector('#btn-add-sug');
                    
                         newform.innerHTML = `<div class="col-md-4">
                                   <label for="inputtext1" class="form-label">الاقتراح ${numArray[2]}</label>
-                                  <input type="text" class="form-control" id="inputtext1" required>
+                                  <input type="text" class="form-control" id="inputtext1" name="company_name[]"  required>
                                 </div>
                                 <div class="col-md-4">
                                     <label for="inputtext2" class="form-label">الاقتراح ${numArray[3]}</label>
-                                    <input type="text" class="form-control" id="inputtext2" required>
+                                    <input type="text" class="form-control" id="inputtext2" name="company_name[]"  required>
                                   </div>
                                 <div class="col-md-4 align-self-end text-center" >
-                                    <button class="btn btn-outline-danger" id="btn-delete-sug" type="button" onclick="deleted2()">حذف اقتراحات</button>
+                                    <button class="btn btn-outline-danger" id="btn-delete-sug"  type="button" onclick="deleted2()">حذف اقتراحات</button>
                                 </div>`;
 
                     parentForm.appendChild(newform);   
@@ -511,21 +514,21 @@ const btnAdd = document.querySelector('#btn-add-sug');
                         newEl.innerHTML = `<div class="col-md-3">
                             <label for="inputtext1" class="form-label" style="display: none;">اسم المساهم</label>  <!--لو شركة مساهمة display=inline-block-->
                                   <label for="inputtext1" class="form-label">اسم المدير</label>
-                                  <input type="text" class="form-control lay3 mangInfo" id="inputtext1">
+                                  <input type="text" class="form-control lay3 mangInfo" id="inputtext1" name="shareholder_name[]" >
                                 </div>
                                 <div class="col-md-3">
                                     <label for="inputtext2" class="form-label"  style="display: none;">جنسيه المساهم</label>
                                   <label for="inputtext1" class="form-label">جنسيه المدير</label>
-                                    <input type="text" class="form-control lay3 mangInfo" id="inputtext2">
+                                    <input type="text" class="form-control lay3 mangInfo" id="inputtext2" name="shareholder_nationality[]">
                                 </div>
                                 <div class="col-md-3">
                                     <label for="inputtext6" class="form-label"  style="display: none;">نسبه المساهمه</label>
                                   <label for="inputtext1" class="form-label">نسبه المدير</label>
-                                    <input type="text" class="form-control lay3" id="inputtext6">
+                                    <input type="text" class="form-control lay3" id="inputtext6" name="shareholder_percentage[]" >
                                 </div>
                                     <div class="col-md-5 mb-3">
                                         <label for="formFileMultiple" class="form-label">اضافه البطاقه الشخصية</label>
-                                        <input class="form-control lay3 mangInfo" type="file" id="formFileMultiple" accept="image/png, image/gif, image/jpeg">
+                                        <input class="form-control lay3 mangInfo"  name="personal_id[]" type="file" id="formFileMultiple" accept="image/png, image/gif, image/jpeg">
                                       </div>
                                       <div class="col-md-3 x-last align-self-center">
                                       <button class="btn btn-outline-danger" type="reset" id="partCompDel" onclick="this.parentNode.parentNode.parentNode.removeChild(this.parentNode.parentNode)">حذف المدير</button>
@@ -634,12 +637,12 @@ btnAddMang.addEventListener('click',(e)=>{
                         <div class="">
                           <label for="inputtext1" class="form-label mang">اسم المدير</label>
                           <label for="inputtext1" class="form-label" style="display: none;">اسم المساهم</label>
-                          <input type="text" class="form-control" id="inputtext1" value="${e.name}" disabled>
+                          <input type="text" class="form-control" id="inputtext1" value="${e.name}"  name = "manager_name[]"  disabled>
                         </div>
                         <div class="">
                             <label for="inputtext2" class="form-label mang">جنسيه المدير</label>
                             <label for="inputtext2" class="form-label" style="display: none;">جنسيه المساهم</label>
-                            <input type="text" class="form-control" id="inputtext2" value="${e.nationality}" disabled>
+                            <input type="text" class="form-control" id="inputtext2" value="${e.nationality}"  name = "manager_nationality[]" disabled>
                         </div>
                     </div>
                 </div>
@@ -654,19 +657,19 @@ btnAddMang.addEventListener('click',(e)=>{
             <label class="form-check-label" for="flexCheckDefault1">
             صلاحية التوقيع امام البنوك وفتح حسابات بنكية والتعامل على حساب الشركة
             </label>
-            <input class="form-check-input" type="checkbox" value="" >
+            <input class="form-check-input" type="checkbox" value="1" name = "perm1[]" >
               </div>
               <div class="form-check">
               <label class="form-check-label" for="flexCheckChecked2">
               صلاحية توقيع العقود بالنيابه عن الشركة
               </label>
-              <input class="form-check-input" type="checkbox" value="" >
+              <input class="form-check-input" type="checkbox" value="1" name = "perm2[]" >
               </div>
               <div class="form-check">
               <label class="form-check-label" for="flexCheckChecked3">
               صلاحية التعامل امام الجهات الحكوميه بالنيابه عن الشركة
               </label>
-              <input class="form-check-input" type="checkbox" value="" >
+              <input class="form-check-input" type="checkbox" value="1" name = "perm3[]"  >
               </div>
         </div>
         <div class="card-footer align-self-center" style="display:none;">
@@ -691,11 +694,11 @@ btnAddMang.addEventListener('click',(e)=>{
       </div>
       <div class="mt-3 mb-3 selectMang" dir="rtl"> 
           <label class="visually-hidden" for="specificSizeSelect">Preference</label>
-          <select class="form-select" id="specificSizeSelect">
+          <select class="form-select" name="manager_type[]" id="specificSizeSelect">
               <option selected disabled>برجاء تحديد التصنيف</option>
-              <option>رئيس مجلس الاداره</option>
-              <option>عضو مجلس اداره</option> 
-              <option>عضو منتدب</option> 
+              <option value ="رئيس مجلس الاداره">رئيس مجلس الاداره</option>
+              <option value ="عضو مجلس اداره">عضو مجلس اداره</option> 
+              <option value ="عضو منتدب">عضو منتدب</option> 
           </select>
       </div>
       <div class="row">
@@ -704,12 +707,12 @@ btnAddMang.addEventListener('click',(e)=>{
                   <div class="">
                     <label for="inputtext1" class="form-label mang">اسم المدير</label>
                     <label for="inputtext1" class="form-label" style="display: none;">اسم المساهم</label>
-                    <input type="text" class="form-control" id="inputtext1" value="${autocompleteinput.value}">
+                    <input type="text" class="form-control" id="inputtext1" value="${autocompleteinput.value}"  name = "manager_name[]">
                   </div>
                   <div class="">
                       <label for="inputtext2" class="form-label mang">جنسيه المدير</label>
                       <label for="inputtext2" class="form-label" style="display: none;">جنسيه المساهم</label>
-                      <input type="text" class="form-control" id="inputtext2">
+                      <input type="text" class="form-control" id="inputtext2" name = "manager_nationality[]" >
                   </div>
               </div>
           </div>
@@ -719,7 +722,7 @@ btnAddMang.addEventListener('click',(e)=>{
           <div class="form-group">
           <div class="form-line">
               <div class="btn-file align-items-center">
-              <input type="file" id="event_image" accept="image/png, image/gif, image/jpeg" name="source" value="C:\fakepath\source" class="hidden">
+              <input type="file" id="event_image" accept="image/png, image/gif, image/jpeg" name="source" value="" class="hidden">
                   <div class=" change-file-ico">
                      <img src="images/upload.svg" width="25%">
                   </div>
@@ -740,19 +743,19 @@ btnAddMang.addEventListener('click',(e)=>{
       <label class="form-check-label" for="flexCheckDefault1">
       صلاحية التوقيع امام البنوك وفتح حسابات بنكية والتعامل على حساب الشركة
       </label>
-      <input class="form-check-input" type="checkbox" >
+      <input class="form-check-input" type="checkbox" value="1" name = "perm1[]" >
         </div>
         <div class="form-check">
         <label class="form-check-label" for="flexCheckChecked2">
         صلاحية توقيع العقود بالنيابه عن الشركة
         </label>
-        <input class="form-check-input" type="checkbox" >
+        <input class="form-check-input" type="checkbox"value="1" name = "perm2[]" >
         </div>
         <div class="form-check">
         <label class="form-check-label" for="flexCheckChecked3">
         صلاحية التعامل امام الجهات الحكوميه بالنيابه عن الشركة
         </label>
-        <input class="form-check-input" type="checkbox">
+        <input class="form-check-input" type="checkbox"value="1" name = "perm3[]">
         </div>
   </div>
   <div class="card-footer align-self-center" style="display:none;">
@@ -778,11 +781,11 @@ btnAddMang.addEventListener('click',(e)=>{
     </div>
     <div class="mt-3 mb-3 selectMang" dir="rtl"> 
         <label class="visually-hidden" for="specificSizeSelect">Preference</label>
-        <select class="form-select" id="specificSizeSelect">
+        <select class="form-select" name="manager_type[]" id="specificSizeSelect">
             <option selected disabled>برجاء تحديد التصنيف</option>
-            <option>رئيس مجلس الاداره</option>
-            <option>عضو مجلس اداره</option> 
-            <option>عضو منتدب</option> 
+            <option value = "رئيس مجلس الاداره">رئيس مجلس الاداره</option>
+            <option value = "عضو مجلس اداره">عضو مجلس اداره</option> 
+            <option value = "عضو منتدب">عضو منتدب</option> 
         </select>
     </div>
     <div class="row">
@@ -791,12 +794,12 @@ btnAddMang.addEventListener('click',(e)=>{
                 <div class="">
                   <label for="inputtext1" class="form-label mang">اسم المدير</label>
                   <label for="inputtext1" class="form-label" style="display: none;">اسم المساهم</label>
-                  <input type="text" class="form-control" id="inputtext1" value="">
+                  <input type="text" class="form-control" id="inputtext1" value="" name = "manager_name[]">
                 </div>
                 <div class="">
                     <label for="inputtext2" class="form-label mang">جنسيه المدير</label>
                     <label for="inputtext2" class="form-label" style="display: none;">جنسيه المساهم</label>
-                    <input type="text" class="form-control" id="inputtext2">
+                    <input type="text" class="form-control" id="inputtext2" name = "manager_nationality[]">
                 </div>
             </div>
         </div>
@@ -805,7 +808,7 @@ btnAddMang.addEventListener('click',(e)=>{
             <div class="form-group">
             <div class="form-line">
                 <div class="btn-file align-items-center">
-                <input type="file" id="event_image" accept="image/png, image/gif, image/jpeg" name="source" value="C:\fakepath\source" class="hidden">
+                <input type="file" id="event_image" accept="image/png, image/gif, image/jpeg" name="source" value="" class="hidden">
                     <div class=" change-file-ico">
                        <img src="images/upload.svg" width="25%">
                     </div>
@@ -825,19 +828,19 @@ btnAddMang.addEventListener('click',(e)=>{
     <label class="form-check-label" for="flexCheckDefault1">
     صلاحية التوقيع امام البنوك وفتح حسابات بنكية والتعامل على حساب الشركة
     </label>
-    <input class="form-check-input" type="checkbox" >
+    <input class="form-check-input" type="checkbox" name = "perm1[]">
       </div>
       <div class="form-check">
       <label class="form-check-label" for="flexCheckChecked2">
       صلاحية توقيع العقود بالنيابه عن الشركة
       </label>
-      <input class="form-check-input" type="checkbox" >
+      <input class="form-check-input" type="checkbox" name = "perm2[]">
       </div>
       <div class="form-check">
       <label class="form-check-label" for="flexCheckChecked3">
       صلاحية التعامل امام الجهات الحكوميه بالنيابه عن الشركة
       </label>
-      <input class="form-check-input" type="checkbox">
+      <input class="form-check-input" type="checkbox" name = "perm3[]">
       </div>
 </div>
 <div class="card-footer align-self-center" style="display:none;">
