@@ -40,7 +40,7 @@ function showLayer(curr){
 function changeLayer(curr){
     console.log(layer);
     //hold for validation
-    // if (curr == 1 && !validateForm()) return false;
+    if (curr == 1 && !validateForm()) return false;
     layer[currLayer].style.display = "none";
     currLayer = currLayer + curr;
     console.log(currLayer);
@@ -333,13 +333,13 @@ function check1(){
 }
 function check2(){
     // e.preventDefault();
-    console.log('before');
+    // console.log('before');
     if (checkbox2.checked){
         // return true;
         downBtn1.style.display = 'none';
         downBtn2.style.display = 'inline-block';
         downBtn3.style.display = 'none';
-        console.log('after');
+        // console.log('after');
         for(let i=0; i < partComp.length; i++){
             if(partComp[i].style.display == 'none'){
                 partComp[i].style.display = 'inline-block';
@@ -505,6 +505,7 @@ const btnAdd = document.querySelector('#btn-add-sug');
         //}
         select.addEventListener('change',(e)=>{
             e.preventDefault();
+            check2();
                 parentCountEl.innerHTML = '';
                     for(let j=1; j < select.value; j++){
                         const newEl = document.createElement('div');
@@ -512,28 +513,28 @@ const btnAdd = document.querySelector('#btn-add-sug');
                         newEl.setAttribute('dir','rtl');
                         newEl.setAttribute('data-id','item_'+j);
                         newEl.innerHTML = `<div class="col-md-3">
-                            <label for="inputtext1" class="form-label" style="display: none;">اسم المساهم</label>  <!--لو شركة مساهمة display=inline-block-->
-                                  <label for="inputtext1" class="form-label">اسم المدير</label>
-                                  <input type="text" class="form-control lay3 mangInfo" id="inputtext1" name="shareholder_name[]" >
-                                </div>
-                                <div class="col-md-3">
-                                    <label for="inputtext2" class="form-label"  style="display: none;">جنسيه المساهم</label>
-                                  <label for="inputtext1" class="form-label">جنسيه المدير</label>
-                                    <input type="text" class="form-control lay3 mangInfo" id="inputtext2" name="shareholder_nationality[]">
-                                </div>
-                                <div class="col-md-3">
-                                    <label for="inputtext6" class="form-label"  style="display: none;">نسبه المساهمه</label>
-                                  <label for="inputtext1" class="form-label">نسبه المدير</label>
-                                    <input type="text" class="form-control lay3" id="inputtext6" name="shareholder_percentage[]" >
-                                </div>
-                                    <div class="col-md-5 mb-3">
-                                        <label for="formFileMultiple" class="form-label">اضافه البطاقه الشخصية</label>
-                                        <input class="form-control lay3 mangInfo"  name="personal_id[]" type="file" id="formFileMultiple" accept="image/png, image/gif, image/jpeg">
-                                      </div>
-                                      <div class="col-md-3 x-last align-self-center">
-                                      <button class="btn btn-outline-danger" type="reset" id="partCompDel" onclick="this.parentNode.parentNode.parentNode.removeChild(this.parentNode.parentNode)">حذف المدير</button>
-                                    </div>
-                                    <hr>`;
+                        <label for="inputtext1" class="form-label" style="display: none;">اسم المساهم</label>  <!--لو شركة مساهمة display=inline-block-->
+                        <label for="inputtext1" class="form-label mang" id="mangName">اسم المدير</label>
+                        <input type="text" class="form-control lay3 mangInfo" id="name">
+                      </div>
+                      <div class="col-md-3">
+                          <label for="inputtext2" class="form-label" style="display: none;">جنسيه المساهم</label>
+                        <label for="inputtext1" class="form-label mang">جنسيه المدير</label>
+                          <input type="text" class="form-control lay3 mangInfo" id="nation">
+                      </div>
+                      <div class="col-md-3">
+                          <label for="inputtext6" class="form-label" style="display: none;">نسبه المساهمه</label>
+                        <label for="inputtext1" class="form-label mang">نسبه المدير</label>
+                          <input type="text" class="form-control lay3" id="inputtext6">
+                      </div>
+                          <div class="col-md-5 mb-3">
+                              <label for="formFileMultiple" class="form-label">اضافه البطاقه الشخصية</label>
+                              <input class="form-control lay3 mangInfo" type="file" id="id" accept="image/png, image/gif, image/jpeg">
+                            </div>
+                          <div class="col-md-3 x-last align-self-center">
+                              <button class="btn btn-outline-danger" type="reset" id="partCompDel">حذف المدير</button>
+                          </div>
+                          <hr>`;
                             parentCountEl.appendChild(newEl);
                             // parentCountEl.insertBefore(newEl,null);
                             // parentCountEl.parentNode.insertBefore(newEl, parentCountEl.nextSibling);
@@ -570,7 +571,7 @@ function getFormData(){
                 objectEle['prev'] = reader.result;
               })
             }
-            arrayEle.pop();
+            // arrayEle.pop();
             // arrayNames = [];
             arrayEle.push(objectEle);
             arrayNames.push(objectEle.name);
@@ -637,17 +638,17 @@ btnAddMang.addEventListener('click',(e)=>{
                         <div class="">
                           <label for="inputtext1" class="form-label mang">اسم المدير</label>
                           <label for="inputtext1" class="form-label" style="display: none;">اسم المساهم</label>
-                          <input type="text" class="form-control" id="inputtext1" value="${e.name}"  name = "manager_name[]"  disabled>
+                          <input type="text" class="form-control" id="inputtext1" value="${e.name}" disabled>
                         </div>
                         <div class="">
                             <label for="inputtext2" class="form-label mang">جنسيه المدير</label>
                             <label for="inputtext2" class="form-label" style="display: none;">جنسيه المساهم</label>
-                            <input type="text" class="form-control" id="inputtext2" value="${e.nationality}"  name = "manager_nationality[]" disabled>
+                            <input type="text" class="form-control" id="inputtext2" value="${e.nationality}" disabled>
                         </div>
                     </div>
                 </div>
                 <div class="col-6 align-self-center" style="padding-top: 33px;">
-                    <div class="id"><img src="${e.prev}" alt="" width="100%" id="imagePrev_${i}"></div>
+                    <div class="id"><img src="${e.idPath}" alt="" width="100%" id="imagePrev_${i}"></div>
                 </div>
             </div>
         </div>
@@ -657,19 +658,19 @@ btnAddMang.addEventListener('click',(e)=>{
             <label class="form-check-label" for="flexCheckDefault1">
             صلاحية التوقيع امام البنوك وفتح حسابات بنكية والتعامل على حساب الشركة
             </label>
-            <input class="form-check-input" type="checkbox" value="1" name = "perm1[]" >
+            <input class="form-check-input" type="checkbox" value="" >
               </div>
               <div class="form-check">
               <label class="form-check-label" for="flexCheckChecked2">
               صلاحية توقيع العقود بالنيابه عن الشركة
               </label>
-              <input class="form-check-input" type="checkbox" value="1" name = "perm2[]" >
+              <input class="form-check-input" type="checkbox" value="" >
               </div>
               <div class="form-check">
               <label class="form-check-label" for="flexCheckChecked3">
               صلاحية التعامل امام الجهات الحكوميه بالنيابه عن الشركة
               </label>
-              <input class="form-check-input" type="checkbox" value="1" name = "perm3[]"  >
+              <input class="form-check-input" type="checkbox" value="" >
               </div>
         </div>
         <div class="card-footer align-self-center" style="display:none;">
@@ -683,92 +684,7 @@ btnAddMang.addEventListener('click',(e)=>{
     // console.log('dcds')
     i++;
         
-        }  else{
-          const newCard = document.createElement('div');
-          newCard.classList.add('col-xl-4','col-md-6','pt-3');
-          newCard.innerHTML= `<div class="card">
-          <div class="card-header">
-      <div class="close">
-          <img src="images/svgexport-6 (16) 1.svg" alt="" 
-          onclick="this.parentNode.parentNode.parentNode.parentNode.parentNode.removeChild(this.parentNode.parentNode.parentNode.parentNode)">
-      </div>
-      <div class="mt-3 mb-3 selectMang" dir="rtl"> 
-          <label class="visually-hidden" for="specificSizeSelect">Preference</label>
-          <select class="form-select" name="manager_type[]" id="specificSizeSelect">
-              <option selected disabled>برجاء تحديد التصنيف</option>
-              <option value ="ceo">رئيس مجلس الاداره</option>
-              <option value ="member_director">عضو مجلس اداره</option> 
-              <option value ="managing_director ">عضو منتدب</option> 
-          </select>
-      </div>
-      <div class="row">
-          <div class="col-6">
-              <div class=" g-3 justify-content-around" dir="rtl">
-                  <div class="">
-                    <label for="inputtext1" class="form-label mang">اسم المدير</label>
-                    <label for="inputtext1" class="form-label" style="display: none;">اسم المساهم</label>
-                    <input type="text" class="form-control" id="inputtext1" value="${autocompleteinput.value}"  name = "manager_name[]">
-                  </div>
-                  <div class="">
-                      <label for="inputtext2" class="form-label mang">جنسيه المدير</label>
-                      <label for="inputtext2" class="form-label" style="display: none;">جنسيه المساهم</label>
-                      <input type="text" class="form-control" id="inputtext2" name = "manager_nationality[]" >
-                  </div>
-              </div>
-          </div>
-          <div class="col-6 align-self-center" style="padding-top: 33px;">
-          <div class="id d-flex justify-content-center align-items-center">
-          <img src="" class="images1"/>
-          <div class="form-group">
-          <div class="form-line">
-              <div class="btn-file align-items-center">
-              <input type="file" id="event_image" accept="image/png, image/gif, image/jpeg" name="source" value="" class="hidden">
-                  <div class=" change-file-ico">
-                     <img src="images/upload.svg" width="25%">
-                  </div>
-                  <div class="full-width">
-                      <p id="wowonder-movie-name">اضافه البطاقه الشخصيه</p>
-                  </div>
-              </div>
-          </div>
-          </div>
-          </div>
-          
-          </div>
-      </div>
-  </div>
-  <div class="card-body">
-      <h6 class="h6part">صلاحيات المدير</h6>
-      <div class="form-check">
-      <label class="form-check-label" for="flexCheckDefault1">
-      صلاحية التوقيع امام البنوك وفتح حسابات بنكية والتعامل على حساب الشركة
-      </label>
-      <input class="form-check-input" type="checkbox" value="1" name = "perm1[]" >
-        </div>
-        <div class="form-check">
-        <label class="form-check-label" for="flexCheckChecked2">
-        صلاحية توقيع العقود بالنيابه عن الشركة
-        </label>
-        <input class="form-check-input" type="checkbox"value="1" name = "perm2[]" >
-        </div>
-        <div class="form-check">
-        <label class="form-check-label" for="flexCheckChecked3">
-        صلاحية التعامل امام الجهات الحكوميه بالنيابه عن الشركة
-        </label>
-        <input class="form-check-input" type="checkbox"value="1" name = "perm3[]">
-        </div>
-  </div>
-  <div class="card-footer align-self-center" style="display:none;">
-      <div class="buttons">
-          <button class="btn save" type="button">حفظ</button>
-          <button class="btn edit" type="button">تعديل</button>
-      </div>
-  </div>
-  </div>`
-  parentCard.appendChild(newCard)
-  // console.log('dcds')
-        }
-  
+        } 
         });
     } else{
         const newCard = document.createElement('div');
@@ -781,11 +697,11 @@ btnAddMang.addEventListener('click',(e)=>{
     </div>
     <div class="mt-3 mb-3 selectMang" dir="rtl"> 
         <label class="visually-hidden" for="specificSizeSelect">Preference</label>
-        <select class="form-select" name="manager_type[]" id="specificSizeSelect">
+        <select class="form-select" id="specificSizeSelect">
             <option selected disabled>برجاء تحديد التصنيف</option>
-            <option value = "ceo">رئيس مجلس الاداره</option>
-            <option value = "member_director">عضو مجلس الادارة</option> 
-            <option value = "member_director">عضو منتدب</option> 
+            <option>رئيس مجلس الاداره</option>
+            <option>عضو مجلس اداره</option> 
+            <option>عضو منتدب</option> 
         </select>
     </div>
     <div class="row">
@@ -794,12 +710,12 @@ btnAddMang.addEventListener('click',(e)=>{
                 <div class="">
                   <label for="inputtext1" class="form-label mang">اسم المدير</label>
                   <label for="inputtext1" class="form-label" style="display: none;">اسم المساهم</label>
-                  <input type="text" class="form-control" id="inputtext1" value="" name = "manager_name[]">
+                  <input type="text" class="form-control" id="inputtext1" value="">
                 </div>
                 <div class="">
                     <label for="inputtext2" class="form-label mang">جنسيه المدير</label>
                     <label for="inputtext2" class="form-label" style="display: none;">جنسيه المساهم</label>
-                    <input type="text" class="form-control" id="inputtext2" name = "manager_nationality[]">
+                    <input type="text" class="form-control" id="inputtext2">
                 </div>
             </div>
         </div>
@@ -808,7 +724,7 @@ btnAddMang.addEventListener('click',(e)=>{
             <div class="form-group">
             <div class="form-line">
                 <div class="btn-file align-items-center">
-                <input type="file" id="event_image" accept="image/png, image/gif, image/jpeg" name="source" value="" class="hidden">
+                <input type="file" id="event_image" accept="image/png, image/gif, image/jpeg" name="source" value="C:\fakepath\source" class="hidden">
                     <div class=" change-file-ico">
                        <img src="images/upload.svg" width="25%">
                     </div>
@@ -828,19 +744,19 @@ btnAddMang.addEventListener('click',(e)=>{
     <label class="form-check-label" for="flexCheckDefault1">
     صلاحية التوقيع امام البنوك وفتح حسابات بنكية والتعامل على حساب الشركة
     </label>
-    <input class="form-check-input" type="checkbox" name = "perm1[]">
+    <input class="form-check-input" type="checkbox" >
       </div>
       <div class="form-check">
       <label class="form-check-label" for="flexCheckChecked2">
       صلاحية توقيع العقود بالنيابه عن الشركة
       </label>
-      <input class="form-check-input" type="checkbox" name = "perm2[]">
+      <input class="form-check-input" type="checkbox" >
       </div>
       <div class="form-check">
       <label class="form-check-label" for="flexCheckChecked3">
       صلاحية التعامل امام الجهات الحكوميه بالنيابه عن الشركة
       </label>
-      <input class="form-check-input" type="checkbox" name = "perm3[]">
+      <input class="form-check-input" type="checkbox">
       </div>
 </div>
 <div class="card-footer align-self-center" style="display:none;">
