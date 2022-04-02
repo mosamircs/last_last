@@ -154,7 +154,7 @@
                                         <div class="mr-8"><button class="btn down" id="down-1" type="button" onclick="download('Incorporation of a Limited Liability Company - Legal Clinic');" style="display: none;">تنزيل ملف الشروط</button></div> 
                                     </div>
                                       <div class="form-check d-flex flex-row-reverse mt-3">
-                                        <div><input class="form-check-input" type="radio" name="exampleRadios" name="layer" id="exampleRadios2" value="option2" onclick="check2()" required></div>
+                                        <div><input class="form-check-input" type="radio" name="exampleRadios" name="company_type" id="exampleRadios2" value="option2" onclick="check2()" required></div>
                                         <div class="mr-3">
                                             <label class="form-check-label" for="exampleRadios1">
                                                 <h2>شركة مساهمة مصري</h2>
@@ -352,208 +352,6 @@
                                         </div>
                                       </div>
                                     <!--modal end-->
-                                     <!-- <div class="col-xl-4 col-md-6 pt-3">
-                                        <div class="card">
-                                            <div class="card-header">
-                                                <div class="close">
-                                                    <img src="images/svgexport-6 (16) 1.svg" alt="" 
-                                                    data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                                </div>
-                                               
-                                                <div class="mt-3 mb-3 selectMang" dir="rtl"> 
-                                                    <label class="visually-hidden" for="specificSizeSelect">Preference</label>
-                                                    <select class="form-select" id="specificSizeSelect">
-                                                        <option selected disabled>برجاء تحديد التصنيف</option>
-                                                        <option>رئيس مجلس الاداره</option>
-                                                        <option>عضو مجلس اداره</option> 
-                                                        <option>عضو منتدب</option> 
-                                                    </select>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-6">
-                                                        <div class=" g-3 justify-content-around" dir="rtl">
-                                                            <div class="">
-                                                              <label for="inputtext1" class="form-label mang">اسم المدير</label>
-                                                              <label for="inputtext1" class="form-label" style="display: none;">اسم المساهم</label>
-                                                              <input type="text" class="form-control" id="inputtext1" novalidate>
-                                                            </div>
-                                                            <div class="">
-                                                                <label for="inputtext2" class="form-label mang">جنسيه المدير</label>
-                                                                <label for="inputtext2" class="form-label" style="display: none;">جنسيه المساهم</label>
-                                                                <input type="text" class="form-control" id="inputtext2" novalidate>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-6 align-self-center">
-                                                        <div class="id">
-                                                             <img src="images/Login Image.svg" alt="" width="100%">
-                                                              Drop Zoon 
-  <div id="dropZoon" class="upload-area__drop-zoon drop-zoon">
-    <span class="drop-zoon__icon">
-        <i class="fa-solid fa-file-arrow-up"></i>   
-    </span>
-    <p class="drop-zoon__paragraph">Drop your file here or Click to browse</p>
-    <span id="loadingText" class="drop-zoon__loading-text">Please Wait</span>
-    <img src="" alt="Preview Image" id="previewImage" class="drop-zoon__preview-image" draggable="false">
-    <input type="file" id="fileInput" class="drop-zoon__file-input" accept="image/*">
-  </div>
-   End Drop Zoon 
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="card-body">
-                                                <h6 class="h6part">صلاحيات المدير</h6>
-                                                <div class="form-check">
-                                                    <label class="form-check-label" for="flexCheckDefault1">
-                                                    <input class="form-check-input" type="checkbox" value="" >
-                                                        صلاحية التوقيع امام البنوك وفتح حسابات بنكية والتعامل على حساب الشركة
-                                                    </label>
-                                                  </div>
-                                                  <div class="form-check">
-                                                      <label class="form-check-label" for="flexCheckChecked2">
-                                                    <input class="form-check-input" type="checkbox" value="" >
-                                                        صلاحية توقيع العقود بالنيابه عن الشركة
-                                                    </label>
-                                                  </div>
-                                                  <div class="form-check">
-                                                      <label class="form-check-label" for="flexCheckChecked3">
-                                                    <input class="form-check-input" type="checkbox" value="">
-                                                        صلاحية التعامل امام الجهات الحكوميه بالنيابه عن الشركة
-                                                    </label>
-                                                  </div>
-                                            </div> -->
-                                            <!-- <div class="card-footer align-self-center">
-                                                <div class="buttons">
-                                                    <button class="btn save" type="button">حفظ</button>
-                                                    <button class="btn edit" type="button">تعديل</button>
-                                                </div>
-                                            </div> 
-                                        </div>
-                                    </div> 
-                                    <div class="col-xl-4 col-md-6">
-                                        <div class="card">
-                                            <div class="card-header">
-                                                <div class="close"><img src="images/svgexport-6 (16) 1.svg" alt=""  data-bs-toggle="modal" data-bs-target="#exampleModal"></div>
-                                                <div class="mt-3 mb-3" dir="rtl">
-                                                    <label class="visually-hidden" for="specificSizeSelect">Preference</label>
-                                                    <select class="form-select" id="specificSizeSelect">
-                                                        <option selected disabled>برجاء تحديد التصنيف</option>
-                                                        <option>رئيس مجلس اداره</option>
-                                                        <option>عضو مجلس اداره</option> 
-                                                        <option>عضو منتدب</option> 
-                                                    </select>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-6">
-                                                        <div class=" g-3 justify-content-around" dir="rtl">
-                                                            <div class="">
-                                                              <label for="inputtext1" class="form-label">اسم المدير</label>
-                                                              <input type="text" class="form-control" id="inputtext1" disabled>
-                                                            </div>
-                                                            <div class="">
-                                                                <label for="inputtext2" class="form-label">جنسيه المساهم</label>
-                                                                <input type="text" class="form-control" id="inputtext2" disabled>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-6 align-self-center">
-                                                        <div class="id"></div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="card-body">
-                                                <h6>صلاحيات المدير</h6>
-                                                <div class="form-check">
-                                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault4" required>
-                                                    <label class="form-check-label" for="flexCheckDefault4">
-                                                        صلاحية التوقيع امام البنوك وفتح حسابات بنكية والتعامل على حساب الشركة
-                                                    </label>
-                                                  </div>
-                                                  <div class="form-check">
-                                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked5" required>
-                                                    <label class="form-check-label" for="flexCheckChecked5">
-                                                        صلاحية توقيع العقود بالنيابه عن الشركة
-                                                    </label>
-                                                  </div>
-                                                  <div class="form-check">
-                                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked6" required>
-                                                    <label class="form-check-label" for="flexCheckChecked6">
-                                                        صلاحية التعامل امام الجهات الحكوميه بالنيابه عن الشركة
-                                                    </label>
-                                                  </div>
-                                                  <div class="invalid-feedback">
-                                                    يجب تحديد صلاحية واحده على الاقل
-                                                  </div>
-                                            </div>
-                                            <div class="card-footer  align-self-center">
-                                                <div class="">
-                                                    <button class="btn save" type="button">حفظ</button>
-                                                    <button class="btn edit" type="button">تعديل</button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-4 col-md-6">
-                                        <div class="card">
-                                            <div class="card-header">
-                                                <div class="close"><img src="images/svgexport-6 (16) 1.svg" alt=""  data-bs-toggle="modal" data-bs-target="#exampleModal"></div>
-                                                <div class="mt-3 mb-3" dir="rtl">
-                                                    <label class="visually-hidden" for="specificSizeSelect">Preference</label>
-                                                    <select class="form-select" id="specificSizeSelect" required>
-                                                        <option selected disabled>برجاء تحديد التصنيف</option>
-                                                        <option>رئيس مجلس اداره</option>
-                                                        <option>عضو مجلس اداره</option> 
-                                                        <option>عضو منتدب</option> 
-                                                    </select>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-6">
-                                                        <div class=" g-3 justify-content-around" dir="rtl">
-                                                            <div class="">
-                                                              <label for="inputtext1" class="form-label">اسم المدير</label>
-                                                              <input type="text" class="form-control" id="inputtext1" required>
-                                                            </div>
-                                                            <div class="">
-                                                                <label for="inputtext2" class="form-label">جنسيه المساهم</label>
-                                                                <input type="text" class="form-control" id="inputtext2" required >
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-6 align-self-center">
-                                                        <div class="id"></div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="card-body">
-                                                <h6>صلاحيات المدير</h6>
-                                                <div class="form-check">
-                                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault7" required>
-                                                    <label class="form-check-label" for="flexCheckDefault7">
-                                                        صلاحية التوقيع امام البنوك وفتح حسابات بنكية والتعامل على حساب الشركة
-                                                    </label>
-                                                  </div>
-                                                  <div class="form-check">
-                                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked8" required>
-                                                    <label class="form-check-label" for="flexCheckChecked8">
-                                                        صلاحية توقيع العقود بالنيابه عن الشركة
-                                                    </label>
-                                                  </div>
-                                                  <div class="form-check">
-                                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked9" required>
-                                                    <label class="form-check-label" for="flexCheckChecked9">
-                                                        صلاحية التعامل امام الجهات الحكوميه بالنيابه عن الشركة
-                                                    </label>
-                                                  </div>
-                                            </div>
-                                            <div class="card-footer  align-self-center">
-                                                <div class="">
-                                                    <button class="btn save" type="button">حفظ</button>
-                                                    <button class="btn edit" type="button">تعديل</button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div> -->
                                 </div>
                             </div>
                         </div>
@@ -561,7 +359,7 @@
                         <div class="layer">
                             <div class="d-flex justify-content-center">
                                 <div class="down-paper mt-5 text-center">
-                                    <button class="btn btn-down-paper"><img src="images/Vector (1).svg" onclick = "download_docx('incorporation-poa-amended')">الحصول علي التوكيل الرسمي</button>
+                                    <button  onclick = "download_docx('incorporation-poa-amended.docx');" type  ="button"class="btn btn-down-paper"><img src="images/Vector (1).svg" >الحصول علي التوكيل الرسمي</button>
                                         <h6 class="pt-3 sec">برجاء تحديد موعد لتوقيع التوكيل</h6>
                                         <div>
                                         <input type="text" class="form-control mx-auto mb-3" id="result" placeholder="Select date" name= "signdate"disabled="" required>

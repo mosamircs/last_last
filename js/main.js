@@ -696,9 +696,9 @@ btnAddMang.addEventListener('click',(e)=>{
           <label class="visually-hidden" for="specificSizeSelect">Preference</label>
           <select class="form-select" name="manager_type[]" id="specificSizeSelect">
               <option selected disabled>برجاء تحديد التصنيف</option>
-              <option value ="رئيس مجلس الاداره">رئيس مجلس الاداره</option>
-              <option value ="عضو مجلس اداره">عضو مجلس اداره</option> 
-              <option value ="عضو منتدب">عضو منتدب</option> 
+              <option value ="ceo">رئيس مجلس الاداره</option>
+              <option value ="member_director">عضو مجلس اداره</option> 
+              <option value ="managing_director ">عضو منتدب</option> 
           </select>
       </div>
       <div class="row">
@@ -783,9 +783,9 @@ btnAddMang.addEventListener('click',(e)=>{
         <label class="visually-hidden" for="specificSizeSelect">Preference</label>
         <select class="form-select" name="manager_type[]" id="specificSizeSelect">
             <option selected disabled>برجاء تحديد التصنيف</option>
-            <option value = "رئيس مجلس الاداره">رئيس مجلس الاداره</option>
-            <option value = "عضو مجلس اداره">عضو مجلس اداره</option> 
-            <option value = "عضو منتدب">عضو منتدب</option> 
+            <option value = "ceo">رئيس مجلس الاداره</option>
+            <option value = "member_director">عضو مجلس الادارة</option> 
+            <option value = "member_director">عضو منتدب</option> 
         </select>
     </div>
     <div class="row">

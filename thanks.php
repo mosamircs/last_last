@@ -5,6 +5,25 @@
     $database_instance = Database::getInstance();
     $connection = $database_instance->getConnection();
     $formdata = array();
+    // $formdata["userid"] = 0;
+    // $formdata["company_name"] = "";
+    // $formdata["company_type"] = "";
+    // $formdata["company_activity"] = "";
+    // $formdata["company_address"] = "";
+    // $formdata["capital_value"] = 0;
+    // $formdata["capital_share"] = 0;
+    $formdata["personal_id"] = "";
+    // $formdata["shareholder_name"] = "";
+    // $formdata["shareholder_nationality"] = "";
+    // $formdata["shareholder_percentage"] = 0;
+    $formdata["manager_name"] = "";
+    $formdata["manager_nationality"] = "";
+    $formdata["perm1"] = "";
+    $formdata["perm2"] = "";
+    $formdata["perm3"] = "";
+    //$formdata["manager_type"] = "";
+    $formdata["signdate"] = "";
+
     if (isset($_POST['userid'])) {
         $formdata["userid"] = $_POST['userid'];
     }
@@ -42,6 +61,7 @@
     if (isset($_POST["personal_id"])) {
         $formdata["personal_id"] = json_encode($_POST["personal_id"]);
     }
+    
     if (isset($_FILES['personal_id'])) {
         $counter = 0;
         foreach ($_FILES['personal_id']['tmp_name'] as $key => $tmp_name) {
@@ -62,9 +82,7 @@
     if (isset($_POST["shareholder_percentage"])) {
         $formdata["shareholder_percentage"] = json_encode($_POST["shareholder_percentage"]);
     }
-    if (isset($_POST["personal_id"])) {
-        $formdata["personal_id"] = json_encode($_POST["personal_id"]);
-    }
+
     if (isset($_POST["manager_name"])) {
         $formdata["manager_name"] = json_encode($_POST["manager_name"]);
     }
@@ -92,32 +110,16 @@
     var_dump($formdata);
     echo "</pre>";
     if(isset($formdata["company_type"]) && isset($formdata["company_activity"]) && isset($formdata["company_name"])  && isset($formdata["company_address"]) && isset($formdata["capital_value"]) && isset($formdata["capital_share"]) &&  isset($formdata["userid"])){
-    $insert_company = "INSERT INTO `companies`(`company_type`,`company_name` , `company_address`, `company_activity`, `capital_value`, `capital_share`,`user_id`) VALUES ('".$formdata["company_type"]."','".$formdata["company_name"]."','".$formdata["company_address"]."','".$formdata["company_activity"]."','".$formdata["capital_value"]."','".$formdata["capital_share"]."','".$formdata["userid"]."')";
-    $result = $connection->query($insert_company);
-            if($result){
-            echo "company inserted";
-        }else{
-            echo "company not inserted";
-        }    
-    $formdata["company_id"] = $connection->insert_id;
+        $insert_company = "INSERT INTO `companies`(`company_type`,`company_name` , `company_address`, `company_activity`, `capital_value`, `capital_share`,`user_id`) VALUES ('".$formdata["company_type"]."','".$formdata["company_name"]."','".$formdata["company_address"]."','".$formdata["company_activity"]."','".$formdata["capital_value"]."','".$formdata["capital_share"]."','".$formdata["userid"]."')";
+        $result = $connection->query($insert_company);  
+        $formdata["company_id"] = $connection->insert_id;
     } 
     if(isset($formdata["shareholder_name"])&&isset($formdata["shareholder_nationality"])&&isset($formdata["shareholder_percentage"])&&isset($formdata["personal_id"])&&isset($formdata["company_id"])){
         $insert_shareholder = "INSERT INTO `shareholders`(`name`,`nationality` , `percenatage`, `personal_id`,`company_id`) VALUES ('".$formdata["shareholder_name"]."','".$formdata["shareholder_nationality"]."','".$formdata["shareholder_percentage"]."','".$formdata["personal_id"]."','".$formdata["company_id"]."')";
-        $result = $connection->query($insert_shareholder);
-                if($result){
-            echo "shareholder inserted";
-        }else{
-            echo "shareholder not inserted";
-        }    
+        $result = $connection->query($insert_shareholder);  
     }
     if(isset($formdata["manager_name"])&&isset($formdata["manager_nationality"])&&isset($formdata["personal_id"])){
-        $insert_manager = "INSERT INTO `managers`(`name`,`nationality` , `personal_id`,`perm1`,`perm2`,`perm3`,`manager_type`,`sign_date`,`company_id`) VALUES ('".$formdata["manager_name"]."','".$formdata["manager_nationality"]."','".$formdata["personal_id"]."','".$formdata["perm1"]."','".$formdata["perm2"]."','".$formdata["perm3"]."','".$formdata["manager_type"]."','".$formdata["signdate"]."','".$formdata["company_id"]."')";
-        $result = $connection->query($insert_manager);
-        if($result){
-            echo "manager inserted";
-        }else{
-            echo "manager not inserted";
-        }    
+    $insert_manager = "INSERT INTO `managers`(`name`,`nationality` , `personal_id`,`perm1`,`perm2`,`perm3`,`manager_type`,`sign_date`,`company_id`) VALUES ('".$formdata["manager_name"]."','".$formdata["manager_nationality"]."','".$formdata["personal_id"]."','".$formdata["perm1"]."','".$formdata["perm2"]."','".$formdata["perm3"]."','".$formdata["manager_type"]."','".$formdata["signdate"]."','".$formdata["company_id"]."')";
+    $result = $connection->query($insert_manager);  
     }
-
 ?>
