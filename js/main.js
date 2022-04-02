@@ -571,7 +571,7 @@ function getFormData(){
                 objectEle['prev'] = reader.result;
               })
             }
-            arrayEle.pop();
+            // arrayEle.pop();
             // arrayNames = [];
             arrayEle.push(objectEle);
             arrayNames.push(objectEle.name);
