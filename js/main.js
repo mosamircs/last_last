@@ -38,12 +38,12 @@ function showLayer(curr){
 }
 //////// change layers
 function changeLayer(curr){
-    console.log(layer);
+    // console.log(layer);
     //hold for validation
     if (curr == 1 && !validateForm()) return false;
     layer[currLayer].style.display = "none";
     currLayer = currLayer + curr;
-    console.log(currLayer);
+    // console.log(currLayer);
         if (currLayer >= layer.length) {
             form.submit();
             return false;
@@ -186,8 +186,8 @@ if(currLayer == 2){
    }
 }
 if(currLayer == 4){
-    const inputAdd = document.getElementById('inputtextAdd');
-    console.log(inputAdd);
+    const inputAdd = document.getElementById('autocompleteinput');
+    // console.log(inputAdd);
     if(inputAdd.value == ''){
     //    console.log($('#inputtextAdd'))
     inputAdd.style.border = '1px solid red';
@@ -577,8 +577,8 @@ function getFormData(){
             arrayNames.push(objectEle.name);
         // }
     }
-    console.log(arrayEle);
-    console.log(arrayNames);
+    // console.log(arrayEle);
+    // console.log(arrayNames);
   }        
   function previewFile() {
     const preview = document.querySelector('.image');
@@ -648,7 +648,7 @@ btnAddMang.addEventListener('click',(e)=>{
                     </div>
                 </div>
                 <div class="col-6 align-self-center" style="padding-top: 33px;">
-                    <div class="id"><img src="${e.idPath}" alt="" width="100%" id="imagePrev_${i}"></div>
+                    <div class="id"><img src="${e.prev}" alt="" width="100%" id="imagePrev_${i}"></div>
                 </div>
             </div>
         </div>

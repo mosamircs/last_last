@@ -674,6 +674,11 @@ input.invalid{
     border: 1px solid var(--main-color);
     border-radius: 0.7rem;
 }
+.card-header .id img{
+    width: -webkit-fill-available;
+    border-radius: 11px;
+    height: inherit;
+}
 .close {
     text-align: left;
     color: var(--close);
