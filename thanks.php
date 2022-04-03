@@ -4,26 +4,18 @@
     global $formdata;
     $database_instance = Database::getInstance();
     $connection = $database_instance->getConnection();
+    echo "<pre>";
+    var_dump($_POST);
+    echo "</pre>";
     $formdata = array();
-    // $formdata["userid"] = 0;
-    // $formdata["company_name"] = "";
-    // $formdata["company_type"] = "";
-    // $formdata["company_activity"] = "";
-    // $formdata["company_address"] = "";
-    // $formdata["capital_value"] = 0;
-    // $formdata["capital_share"] = 0;
-    $formdata["personal_id"] = "";
-    // $formdata["shareholder_name"] = "";
-    // $formdata["shareholder_nationality"] = "";
-    // $formdata["shareholder_percentage"] = 0;
-    $formdata["manager_name"] = "";
-    $formdata["manager_nationality"] = "";
-    $formdata["perm1"] = "";
-    $formdata["perm2"] = "";
-    $formdata["perm3"] = "";
-    //$formdata["manager_type"] = "";
-    $formdata["signdate"] = "";
-
+    // $formdata["personal_id"] = "";
+    // $formdata["manager_name"] = "";
+    // $formdata["manager_nationality"] = "";
+    // $formdata["perm1"] = "";
+    // $formdata["perm2"] = "";
+    // $formdata["perm3"] = "";
+    // $formdata["signdate"] = "";
+    $_POST['userid'] = 10;
     if (isset($_POST['userid'])) {
         $formdata["userid"] = $_POST['userid'];
     }
@@ -58,8 +50,11 @@
     if (isset($_POST["capital_share"])) {
         $formdata["capital_share"] = $_POST["capital_share"];
     }
+
     if (isset($_POST["personal_id"])) {
-        $formdata["personal_id"] = json_encode($_POST["personal_id"]);
+        for ($i=0; $i <count($_POST["personal_id"]) ; $i++) {   
+        $formdata["personal_id"][$i] = $_POST["personal_id"][$i];
+        }
     }
     
     if (isset($_FILES['personal_id'])) {
@@ -74,49 +69,67 @@
         }
     }
     if (isset($_POST["shareholder_name"])) {
-        $formdata["shareholder_name"] = json_encode($_POST["shareholder_name"]);
+        for ($i=0; $i <count($_POST["shareholder_name"]) ; $i++) {   
+        $formdata["shareholder_name"][$i] = $_POST["shareholder_name"][$i];
+        }
     }
     if (isset($_POST["shareholder_nationality"])) {
-        $formdata["shareholder_nationality"] = json_encode($_POST["shareholder_nationality"]);
+        for ($i=0; $i <count($_POST["shareholder_nationality"]) ; $i++) {   
+        $formdata["shareholder_nationality"][$i] =$_POST["shareholder_nationality"][$i];
+        }
     }
     if (isset($_POST["shareholder_percentage"])) {
-        $formdata["shareholder_percentage"] = json_encode($_POST["shareholder_percentage"]);
+    for ($i=0; $i <count($_POST["shareholder_percentage"]) ; $i++) {
+        $formdata["shareholder_percentage"][$i] = $_POST["shareholder_percentage"][$i];
+     }
     }
 
     if (isset($_POST["manager_name"])) {
-        $formdata["manager_name"] = json_encode($_POST["manager_name"]);
+        for ($i=0; $i <count($_POST["manager_name"]) ; $i++) {   
+            $formdata["manager_name"][$i] = $_POST["manager_name"][$i];
+        }
     }
     if (isset($_POST["manager_nationality"])) {
-        $formdata["manager_nationality"] = json_encode($_POST["manager_nationality"]);
+        for ($i=0; $i <count($_POST["manager_nationality"]) ; $i++) {   
+        $formdata["manager_nationality"][$i] = $_POST["manager_nationality"][$i];
+        }
     }
     if (isset($_POST["perm1"])){
-        $formdata["perm1"] = json_encode($_POST["perm1"]);
+        for ($i=0; $i <count($_POST["perm1"]) ; $i++) {   
+        $formdata["perm1"][$i] = $_POST["perm1"][$i];
+        }
     }
     if(isset($_POST["perm2"])){   
-        $formdata["perm2"] = json_encode($_POST["perm2"]);
+        for ($i=0; $i <count($_POST["perm2"]) ; $i++) {   
+        $formdata["perm2"][$i] = $_POST["perm2"][$i];
+        }
     }
-    if(isset($_POST["perm3"])){   
-        $formdata["perm3"] = json_encode($_POST["perm3"]);
+    if(isset($_POST["perm3"])){  
+        for ($i=0; $i <count($_POST["perm3"]) ; $i++) {   
+        $formdata["perm3"][$i] = $_POST["perm3"][$i];
+        }
     }
-
-   
+    echo "<pre>";
+    var_dump($formdata);
+    echo "</pre>";
     if (isset($_POST["manager_type"])) {
-        $formdata["manager_type"] = json_encode($_POST["manager_type"]);
+        for ($i=0; $i <count($_POST["manager_type"]) ; $i++) {   
+        $formdata["manager_type"][$i] = $_POST["manager_type"][$i];
+        }
     }
     if (isset($_POST["signdate"])){
         $formdata["signdate"] = $_POST["signdate"];
     }
-    // if(isset($formdata["company_type"]) && isset($formdata["company_activity"]) && isset($formdata["company_name"])  && isset($formdata["company_address"]) && isset($formdata["capital_value"]) && isset($formdata["capital_share"]) &&  isset($formdata["userid"])){
-        $insert_company = "INSERT INTO `companies`(`company_type`,`company_name` , `company_address`, `company_activity`, `capital_value`, `capital_share`,`user_id`) VALUES ('".$formdata["company_type"]."','".$formdata["company_name"]."','".$formdata["company_address"]."','".$formdata["company_activity"]."','".$formdata["capital_value"]."','".$formdata["capital_share"]."','".$formdata["userid"]."')";
-        $result = $connection->query($insert_company);  
-        $formdata["company_id"] = $connection->insert_id;
-    // } 
-    // if(isset($formdata["shareholder_name"])&&isset($formdata["shareholder_nationality"])&&isset($formdata["shareholder_percentage"])&&isset($formdata["personal_id"])&&isset($formdata["company_id"])){
-        $insert_shareholder = "INSERT INTO `shareholders`(`name`,`nationality` , `percenatage`, `personal_id`,`company_id`) VALUES ('".$formdata["shareholder_name"]."','".$formdata["shareholder_nationality"]."','".$formdata["shareholder_percentage"]."','".$formdata["personal_id"]."','".$formdata["company_id"]."')";
+    $insert_company = "INSERT INTO `companies`(`company_type`,`company_name` , `company_address`, `company_activity`, `capital_value`, `capital_share`,`user_id`) VALUES ('".$formdata["company_type"]."','".$formdata["company_name"]."','".$formdata["company_address"]."','".$formdata["company_activity"]."','".$formdata["capital_value"]."','".$formdata["capital_share"]."','".$formdata["userid"]."')";
+    $result = $connection->query($insert_company);  
+    $formdata["company_id"] = $connection->insert_id;
+
+    for ($i=0; $i < count($_POST["shareholder_name"]) ; $i++) {
+        $insert_shareholder = "INSERT INTO `shareholders`(`name`,`nationality` , `percenatage`, `personal_id`,`company_id`) VALUES ('".$formdata["shareholder_name"][$i]."','".$formdata["shareholder_nationality"][$i]."','".$formdata["shareholder_percentage"][$i]."','".$formdata["personal_id"][$i]."','".$formdata["company_id"]."')";
         $result = $connection->query($insert_shareholder);  
-    // }
-    // if(isset($formdata["manager_name"])&&isset($formdata["manager_nationality"])&&isset($formdata["personal_id"])){
-    $insert_manager = "INSERT INTO `managers`(`name`,`nationality` , `personal_id`,`perm1`,`perm2`,`perm3`,`manager_type`,`sign_date`,`company_id`) VALUES ('".$formdata["manager_name"]."','".$formdata["manager_nationality"]."','".$formdata["personal_id"]."','".$formdata["perm1"]."','".$formdata["perm2"]."','".$formdata["perm3"]."','".$formdata["manager_type"]."','".$formdata["signdate"]."','".$formdata["company_id"]."')";
+    }
+    for ($i=0; $i < count($_POST["manager_name"]) ; $i++) {
+    $insert_manager .= "INSERT INTO `managers`(`name`,`nationality` , `personal_id`,`perm1`,`perm2`,`perm3`,`manager_type`,`sign_date`,`company_id`) VALUES ('".$formdata["manager_name"][$i]."','".$formdata["manager_nationality"][$i]."','".$formdata["personal_id"]."','".$formdata["perm1"][$i]."','".$formdata["perm2"][$i]."','".$formdata["perm3"][$i]."','".$formdata["manager_type"][$i]."','".$formdata["signdate"]."','".$formdata["company_id"]."')";
     $result = $connection->query($insert_manager);  
-    // }
+    }
 ?>

@@ -14,7 +14,7 @@
 <body>
         <!-- welcom page-->
         <section id="welcome-page" class="layer">
-        <form action="register.php" id= "register_user" class="needs-validation" novalidate>
+        <form action="register.php" method = "post" id= "register_user" class="needs-validation" novalidate>
                 <div class="logo-box">
                     <div class="container">
                         <div class="d-flex justify-content-center">
@@ -141,7 +141,7 @@
                                 <div class="choice d-flex justify-content-center flex-column align-items-end">
                                     <div class="form-check d-flex flex-row-reverse mt-3">
                                         <div>
-                                            <input class="form-check-input" type="radio" name="exampleRadios" name="company_type"  id="exampleRadios1" value="option1" onclick="check1()"  required></div>
+                                            <input class="form-check-input" type="radio"  name="company_type"  id="exampleRadios1" value="option1" onclick="check1()"  required></div>
                                         <div class="mr-3">
                                             <label class="form-check-label" for="exampleRadios1">
                                                 <h2>شركة ذات مسئولية محدودة</h2>
@@ -154,7 +154,7 @@
                                         <div class="mr-8"><button class="btn down" id="down-1" type="button" onclick="download('Incorporation of a Limited Liability Company - Legal Clinic');" style="display: none;">تنزيل ملف الشروط</button></div> 
                                     </div>
                                       <div class="form-check d-flex flex-row-reverse mt-3">
-                                        <div><input class="form-check-input" type="radio" name="exampleRadios" name="company_type" id="exampleRadios2" value="option2" onclick="check2()" required></div>
+                                        <div><input class="form-check-input" type="radio"  name="company_type" id="exampleRadios2" value="option2" onclick="check2()" required></div>
                                         <div class="mr-3">
                                             <label class="form-check-label" for="exampleRadios1">
                                                 <h2>شركة مساهمة مصري</h2>
@@ -167,7 +167,7 @@
                                         <div class="mr-8"><button class="btn down"  id="down-2" style="display: none;" onclick="download('Joint Stock Incorporation');"  type="button">تنزيل ملف الشروط</button></div>
                                     </div>
                                       <div class="form-check d-flex flex-row-reverse mt-3">
-                                        <div><input class="form-check-input" type="radio" name="exampleRadios" name="company_type" id="exampleRadios3" value="option3" onclick="check3()" required></div>
+                                        <div><input class="form-check-input" type="radio"  name="company_type" id="exampleRadios3" value="option3" onclick="check3()" required></div>
                                         <div class="mr-3">
                                             <label class="form-check-label" for="exampleRadios1">
                                                 <h2>شركة شخص واحد ذات مسئولية محدودة</h2>
@@ -190,7 +190,7 @@
                                     </div>
                                     <div class="choice d-flex justify-content-center flex-column align-items-end">
                                         <div class="form-check d-flex flex-row-reverse mt-3">
-                                            <div><input class="form-check-input" type="radio" name="exampleRadios"  name="company_type" id="exampleRadios4" value="option4" onclick="check4()"  required></div>
+                                            <div><input class="form-check-input" type="radio" name="company_type" id="exampleRadios4" value="option4" onclick="check4()"  required></div>
                                             <div class="mr-3">
                                                 <label class="form-check-label" for="exampleRadios4">
                                                     <h2>المنشاة الفردية</h2>
@@ -200,7 +200,7 @@
                                             <div class="mr-8"><button class="btn down" id="down-4" type="button" onclick="download('Sole Entity');" style="display: none;">تنزيل ملف الشروط</button></div> 
                                         </div>
                                           <div class="form-check d-flex flex-row-reverse mt-3">
-                                            <div><input class="form-check-input" type="radio" name="exampleRadios" name="company_type" id="exampleRadios5" value="option5" onclick="check5()" required></div>
+                                            <div><input class="form-check-input" type="radio"  name="company_type" id="exampleRadios5" value="option5" onclick="check5()" required></div>
                                             <div class="mr-3">
                                                 <label class="form-check-label" for="exampleRadios1">
                                                     <h2>شركة التضامن</h2>
@@ -210,7 +210,7 @@
                                             <div class="mr-8"><button class="btn down"  id="down-5" style="display: none;" onclick="download('General partnership');"  type="button">تنزيل ملف الشروط</button></div>
                                         </div>
                                           <div class="form-check d-flex flex-row-reverse mt-3">
-                                            <div><input class="form-check-input" type="radio" name="exampleRadios" name="company_type" id="exampleRadios6" value="option6" onclick="check6()" required></div>
+                                            <div><input class="form-check-input" type="radio"  name="company_type" id="exampleRadios6" value="option6" onclick="check6()" required></div>
                                             <div class="mr-3">
                                                 <label class="form-check-label" for="exampleRadios1">
                                                     <h2>شركة التوصية البسيطة</h2>
@@ -362,7 +362,7 @@
                                     <button  onclick = "download_docx('incorporation-poa-amended.docx');" type  ="button"class="btn btn-down-paper"><img src="images/Vector (1).svg" >الحصول علي التوكيل الرسمي</button>
                                         <h6 class="pt-3 sec">برجاء تحديد موعد لتوقيع التوكيل</h6>
                                         <div>
-                                        <input type="text" class="form-control mx-auto mb-3" id="result" placeholder="Select date" name= "signdate"disabled="" required>
+                                        <input type="text" class="form-control mx-auto mb-3" id="result" placeholder="Select date" name= "signdate" disabled required>
                                             <div class="row">
                                                 <div class="col-md-12">
                                                     <div id="inline_cal"></div>
@@ -448,6 +448,7 @@
             success:function(response){
                 console.log(response);
                 document.getElementById("userid").value = response.id;
+                // console.log(document.getElementById("userid").value);
             }
         });
     });

@@ -47,10 +47,11 @@
        }
 
 
-
+       
     if (isset($formdata["username"])&&isset($formdata["email"])&&isset($formdata["phone"])) {
-      
         $insert_user = "INSERT INTO `users` (`name`, `email`, `phone`) VALUES ('".$formdata["username"]."', '".$formdata["email"]."', '".$formdata["phone"]."')";
+        
+        var_dump($formdata);
         
         $result = $connection->query($insert_user);
 
