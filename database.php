@@ -6,8 +6,8 @@ class Database
      * configration 
      */
     private $host = "localhost";
-    private $username = "root";
-    private $password  = "";
+    private $username = "legal";
+    private $password  = "?6Ew3hs0";
     private $dbname = "legal";
 
     //holds the class instnce 

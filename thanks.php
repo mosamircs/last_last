@@ -4,9 +4,9 @@
     global $formdata;
     $database_instance = Database::getInstance();
     $connection = $database_instance->getConnection();
-    echo "<pre>";
-    var_dump($_POST);
-    echo "</pre>";
+    // echo "<pre>";
+    // var_dump($_POST);
+    // echo "</pre>";
     $formdata = array();
     // var_dump($_FILES["personal_id"]["name"]);
     if (isset($_POST['userid'])) {
@@ -119,7 +119,7 @@
     for ($i=0; $i < count($_POST["shareholder_name"]) ; $i++) {
         
         $insert_shareholder = "INSERT INTO `shareholders`(`name`,`nationality` , `percenatage`, `personal_id`,`company_id`) VALUES ('".$formdata["shareholder_name"][$i]."','".$formdata["shareholder_nationality"][$i]."','".$formdata["shareholder_percentage"][$i]."','".$formdata["personal_id"][$i]."','".$formdata["company_id"]."')";
-        var_dump($insert_shareholder);
+        // var_dump($insert_shareholder);
         $result2 = $connection->query($insert_shareholder);  
     }
     for ($i=0; $i < count($_POST["manager_name"]) ; $i++) {
