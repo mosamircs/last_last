@@ -515,21 +515,21 @@ const btnAdd = document.querySelector('#btn-add-sug');
                         newEl.innerHTML = `<div class="col-md-3">
                         <label for="inputtext1" class="form-label" style="display: none;">اسم المساهم</label>  <!--لو شركة مساهمة display=inline-block-->
                         <label for="inputtext1" class="form-label mang" id="mangName">اسم المدير</label>
-                        <input type="text" class="form-control lay3 mangInfo" id="name">
+                        <input type="text" class="form-control lay3 mangInfo" id="name" name="shareholder_name[]">
                       </div>
                       <div class="col-md-3">
                           <label for="inputtext2" class="form-label" style="display: none;">جنسيه المساهم</label>
                         <label for="inputtext1" class="form-label mang">جنسيه المدير</label>
-                          <input type="text" class="form-control lay3 mangInfo" id="nation">
+                          <input type="text" class="form-control lay3 mangInfo" id="nation" name="shareholder_nationality[]">
                       </div>
                       <div class="col-md-3">
                           <label for="inputtext6" class="form-label" style="display: none;">نسبه المساهمه</label>
                         <label for="inputtext1" class="form-label mang">نسبه المدير</label>
-                          <input type="text" class="form-control lay3" id="inputtext6">
+                          <input type="text" class="form-control lay3" id="inputtext6" name="shareholder_percentage[]">
                       </div>
                           <div class="col-md-5 mb-3">
                               <label for="formFileMultiple" class="form-label">اضافه البطاقه الشخصية</label>
-                              <input class="form-control lay3 mangInfo" type="file" id="id" accept="image/png, image/gif, image/jpeg">
+                              <input class="form-control lay3 mangInfo" name="personal_id[]" type="file" id="id" accept="image/png, image/gif, image/jpeg">
                             </div>
                           <div class="col-md-3 x-last align-self-center">
                               <button class="btn btn-outline-danger" type="reset" id="partCompDel">حذف المدير</button>
@@ -625,11 +625,11 @@ btnAddMang.addEventListener('click',(e)=>{
             </div>
             <div class="mt-3 mb-3 selectMang" dir="rtl"> 
                 <label class="visually-hidden" for="specificSizeSelect">Preference</label>
-                <select class="form-select" id="specificSizeSelect">
-                    <option selected disabled>برجاء تحديد التصنيف</option>
-                    <option>رئيس مجلس الاداره</option>
-                    <option>عضو مجلس اداره</option> 
-                    <option>عضو منتدب</option> 
+                <select class="form-select" name = "mangager_type" id="specificSizeSelect">
+                    <option selected readonly>برجاء تحديد التصنيف</option>
+                    <option value = "ceo">رئيس مجلس الاداره</option>
+                    <option value = "director_member">عضو مجلس اداره</option> 
+                    <option name = "director_manager">عضو منتدب</option> 
                 </select>
             </div>
             <div class="row">
@@ -638,12 +638,12 @@ btnAddMang.addEventListener('click',(e)=>{
                         <div class="">
                           <label for="inputtext1" class="form-label mang">اسم المدير</label>
                           <label for="inputtext1" class="form-label" style="display: none;">اسم المساهم</label>
-                          <input type="text" class="form-control" id="inputtext1" value="${e.name}" disabled>
+                          <input type="text" class="form-control" id="inputtext1" value="${e.name}" name = "manager_name[]" readonly>
                         </div>
                         <div class="">
                             <label for="inputtext2" class="form-label mang">جنسيه المدير</label>
                             <label for="inputtext2" class="form-label" style="display: none;">جنسيه المساهم</label>
-                            <input type="text" class="form-control" id="inputtext2" value="${e.nationality}" disabled>
+                            <input type="text" class="form-control" id="inputtext2" value="${e.nationality}" name = "manager_nationality[]" readonly>
                         </div>
                     </div>
                 </div>
@@ -658,19 +658,19 @@ btnAddMang.addEventListener('click',(e)=>{
             <label class="form-check-label" for="flexCheckDefault1">
             صلاحية التوقيع امام البنوك وفتح حسابات بنكية والتعامل على حساب الشركة
             </label>
-            <input class="form-check-input" type="checkbox" value="" >
+            <input class="form-check-input" type="checkbox" value="" name = "perm1[]">
               </div>
               <div class="form-check">
               <label class="form-check-label" for="flexCheckChecked2">
               صلاحية توقيع العقود بالنيابه عن الشركة
               </label>
-              <input class="form-check-input" type="checkbox" value="" >
+              <input class="form-check-input" type="checkbox" value="" name = "perm2[]" >
               </div>
               <div class="form-check">
               <label class="form-check-label" for="flexCheckChecked3">
               صلاحية التعامل امام الجهات الحكوميه بالنيابه عن الشركة
               </label>
-              <input class="form-check-input" type="checkbox" value="" >
+              <input class="form-check-input" type="checkbox" value="" name = "perm3[]">
               </div>
         </div>
         <div class="card-footer align-self-center" style="display:none;">
@@ -697,11 +697,11 @@ btnAddMang.addEventListener('click',(e)=>{
     </div>
     <div class="mt-3 mb-3 selectMang" dir="rtl"> 
         <label class="visually-hidden" for="specificSizeSelect">Preference</label>
-        <select class="form-select" id="specificSizeSelect">
-            <option selected disabled>برجاء تحديد التصنيف</option>
-            <option>رئيس مجلس الاداره</option>
-            <option>عضو مجلس اداره</option> 
-            <option>عضو منتدب</option> 
+        <select class="form-select" name = "mangager_type" id="specificSizeSelect">
+            <option selected readonly>برجاء تحديد التصنيف</option>
+            <option value = "ceo">رئيس مجلس الاداره</option>
+            <option value = "director_member">عضو مجلس اداره</option> 
+            <option name = "director_manager">عضو منتدب</option> 
         </select>
     </div>
     <div class="row">
@@ -710,12 +710,12 @@ btnAddMang.addEventListener('click',(e)=>{
                 <div class="">
                   <label for="inputtext1" class="form-label mang">اسم المدير</label>
                   <label for="inputtext1" class="form-label" style="display: none;">اسم المساهم</label>
-                  <input type="text" class="form-control" id="inputtext1" value="">
+                  <input type="text" class="form-control" id="inputtext1" value=""  name = "manager_name[]" >
                 </div>
                 <div class="">
                     <label for="inputtext2" class="form-label mang">جنسيه المدير</label>
                     <label for="inputtext2" class="form-label" style="display: none;">جنسيه المساهم</label>
-                    <input type="text" class="form-control" id="inputtext2">
+                    <input type="text" class="form-control" id="inputtext2"   name = "manager_nationality[]">
                 </div>
             </div>
         </div>
@@ -882,3 +882,32 @@ $(function() {
 
 
 ///////////////////function file image preview
+
+
+
+
+
+
+
+
+
+// sherholder[0][name]
+
+// sherholder[0][personal_id]
+// sherholder[0][nation]
+
+// sherholder[1][name]
+// sherholder[1][personal_id]
+// sherholder[1][nation]
+// [
+//     0=.[
+//         name=>|mohamed,
+//          pesonalid=> filwobject
+//          nation=.egy
+//     ],
+//     1=.[
+//         name=>|mohamed,
+//          pesonalid=> filwobject
+//          nation=.egy
+//     ]
+// ]
