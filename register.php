@@ -49,10 +49,7 @@
 
        
     if (isset($formdata["username"])&&isset($formdata["email"])&&isset($formdata["phone"])) {
-        $insert_user = "INSERT INTO `users` (`name`, `email`, `phone`) VALUES ('".$formdata["username"]."', '".$formdata["email"]."', '".$formdata["phone"]."')";
-        
-        var_dump($formdata);
-        
+        $insert_user = "INSERT INTO `users` (`name`, `email`, `phone`) VALUES ('".$formdata["username"]."', '".$formdata["email"]."', '".$formdata["phone"]."')";        
         $result = $connection->query($insert_user);
 
         $last_id = $connection->insert_id;

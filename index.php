@@ -14,7 +14,7 @@
 <body>
         <!-- welcom page-->
         <section id="welcome-page" class="layer">
-        <form action="register.php" method = "post" id= "register_user" class="needs-validation" novalidate>
+        <form action="register.php" id= "register_user" class="needs-validation" novalidate>
                 <div class="logo-box">
                     <div class="container">
                         <div class="d-flex justify-content-center">
@@ -437,7 +437,7 @@
 <script>
     $(document).on('click','#btnSubmit',function(e){
         
-        e.preventDefault();
+        // e.preventDefault();
         
         var serialized_data = $("#register_user").serialize(); 
 
@@ -448,7 +448,9 @@
             success:function(response){
                 console.log(response);
                 document.getElementById("userid").value = response.id;
-                // console.log(document.getElementById("userid").value);
+                // console.log("user id is: " + response.id);
+                 console.log( document.getElementById("userid").value);
+
             }
         });
     });
